@@ -18,11 +18,19 @@ struct CPU
     Byte B : 1; //break
     Byte V : 1; //overflow
     Byte N : 1; //negative
+
+    void Reset()
+    {
+        PC = 0xFFFC;
+        SP = 0x0100;
+        C = Z = I = D = B = V = N = 0;
+        A = X = Y = 0;
+    }
 };
 
 int main()
 {
     CPU cpu;
-    
+    cpu.Reset();
     return 0;
 }
